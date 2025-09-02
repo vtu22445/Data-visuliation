@@ -1,0 +1,12 @@
+import pandas as pd
+from google.colab import files
+uploaded = files.upload()
+df = pd.read_csv("100 Sales Records.csv")
+print("📌 First 5 rows of the dataset:")
+print(df.head())
+df['Order Date'] = pd.to_datetime(df['Order Date'])
+df['Ship Date'] = pd.to_datetime(df['Ship Date'])
+print("\n📌 Missing Values in Each Column:")
+print(df.isnull().sum())
+print("\n📌 Data Types of Columns:")
+print(df.dtypes)
